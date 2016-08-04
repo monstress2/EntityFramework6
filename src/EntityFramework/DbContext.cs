@@ -237,6 +237,18 @@ namespace System.Data.Entity
             OnModelCreating(modelBuilder);
         }
 
+        // <summary>
+        // Public method used to get Default ModelBuilder.
+        // </summary>
+        /// <remarks>
+        /// Used for Inject to Model an Runtime-generated entities (classes). Need because OnModelCreating calling only once(first time when model creating) and then model cached.
+        /// </remarks>
+        public DbModelBuilder GetStdBuilder()
+        {
+            return (_internalContext as LazyInternalContext).CreateModelBuilder();
+        }
+
+
         #endregion
 
         #region Database management
