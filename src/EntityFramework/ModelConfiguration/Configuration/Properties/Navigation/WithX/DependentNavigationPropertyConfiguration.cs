@@ -45,6 +45,16 @@ namespace System.Data.Entity.ModelConfiguration.Configuration
 
             return this;
         }
+        public CascadableNavigationPropertyConfiguration HasForeignKey(
+           Reflection.PropertyInfo propertyInfo)
+        {
+            Check.NotNull(propertyInfo, "propertyInfo");
+
+            NavigationPropertyConfiguration.Constraint
+                = new ForeignKeyConstraintConfiguration(new Reflection.PropertyInfo[] { propertyInfo });
+
+            return this;
+        }
 
         /// <inheritdoc />
         [EditorBrowsable(EditorBrowsableState.Never)]

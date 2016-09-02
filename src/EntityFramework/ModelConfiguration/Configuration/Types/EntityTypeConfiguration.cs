@@ -409,7 +409,7 @@ namespace System.Data.Entity.ModelConfiguration.Configuration.Types
             get { return _entitySubTypesMappingConfigurations; }
         }
 
-        internal NavigationPropertyConfiguration Navigation(PropertyInfo propertyInfo)
+        public NavigationPropertyConfiguration Navigation(PropertyInfo propertyInfo)
         {
             DebugCheck.NotNull(propertyInfo);
 

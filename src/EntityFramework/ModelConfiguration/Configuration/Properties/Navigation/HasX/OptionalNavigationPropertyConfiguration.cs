@@ -49,6 +49,16 @@ namespace System.Data.Entity.ModelConfiguration.Configuration
 
             return WithMany();
         }
+        public DependentNavigationPropertyConfiguration<TEntityType> WithMany(
+            Reflection.PropertyInfo propertyInfo)
+        {
+            Check.NotNull(propertyInfo, "propertyInfo");
+
+            _navigationPropertyConfiguration.InverseNavigationProperty
+                = propertyInfo;
+
+            return WithMany();
+        }
 
         /// <summary>
         /// Configures the relationship to be optional:many without a navigation property on the other side of the relationship.

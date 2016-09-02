@@ -219,6 +219,7 @@ namespace System.Data.Entity.ModelConfiguration.Edm
                     return entityType;
                 }
             }
+            
 
             return null;
         }

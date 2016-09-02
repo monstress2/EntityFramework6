@@ -294,6 +294,14 @@ namespace System.Data.Entity.ModelConfiguration
             return new OptionalNavigationPropertyConfiguration<TEntityType, TTargetEntity>(
                 _entityTypeConfiguration.Navigation(navigationPropertyExpression.GetSimplePropertyAccess().Single()));
         }
+        public OptionalNavigationPropertyConfiguration<TEntityType, TTargetEntity> HasOptional<TTargetEntity>(Reflection.PropertyInfo propertyInfo)
+            where TTargetEntity : class
+        {
+            Check.NotNull(propertyInfo, "propertyInfo");
+
+            return new OptionalNavigationPropertyConfiguration<TEntityType, TTargetEntity>(
+                _entityTypeConfiguration.Navigation(propertyInfo));
+        }
 
         /// <summary>
         /// Configures a required relationship from this entity type.
